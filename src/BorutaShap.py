@@ -829,7 +829,7 @@ class BorutaShap:
             if self.classification:
                 # for some reason shap returns values wraped in a list of length 1
 
-                self.shap_values = np.array(explainer.shap_values(self.find_sample()))
+                self.shap_values = np.array(explainer.shap_values(self.find_sample(), check_additivity=False))
                 if isinstance(self.shap_values, list):
 
                     class_inds = range(len(self.shap_values))
@@ -846,14 +846,14 @@ class BorutaShap:
                     self.shap_values = np.abs(self.shap_values).mean(0)
 
             else:
-                self.shap_values = explainer.shap_values(self.find_sample())
+                self.shap_values = explainer.shap_values(self.find_sample(), check_additivity=False)
                 self.shap_values = np.abs(self.shap_values).mean(0)
 
         else:
 
             if self.classification:
                 # for some reason shap returns values wraped in a list of length 1
-                self.shap_values = np.array(explainer.shap_values(self.X_boruta))
+                self.shap_values = np.array(explainer.shap_values(self.X_boruta, check_additivity=False))
                 if isinstance(self.shap_values, list):
 
                     class_inds = range(len(self.shap_values))
@@ -870,7 +870,7 @@ class BorutaShap:
                     self.shap_values = np.abs(self.shap_values).mean(0)
 
             else:
-                self.shap_values = explainer.shap_values(self.X_boruta)
+                self.shap_values = explainer.shap_values(self.X_boruta, check_additivity=False)
                 self.shap_values = np.abs(self.shap_values).mean(0)
 
 

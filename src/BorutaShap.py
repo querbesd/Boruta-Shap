@@ -882,7 +882,8 @@ class BorutaShap:
         This is an exact, two-sided test of the null hypothesis
         that the probability of success in a Bernoulli experiment is p
         """
-        return [binom_test(x, n=n, p=p, alternative=alternative) for x in array]
+        return [binomtest(x, n=n, p=p, alternative=alternative).pvalue for x in array]
+
 
 
     @staticmethod

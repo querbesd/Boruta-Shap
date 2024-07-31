@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.cluster import KMeans
 from sklearn.inspection import permutation_importance
 from scipy.sparse import issparse
-from scipy.stats import binom_test, ks_2samp
+from scipy.stats import binomtest, ks_2samp
 import matplotlib.pyplot as plt
 from tqdm.auto import tqdm
 import random
